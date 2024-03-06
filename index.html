@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- daisy UI & tailwind setUp -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="mx-auto w-full box-border container mulish-font inter-font">
+    <main class="box-border pt-8">
+        <!-- navbar -->
+        <section class="mb-8 ">
+            <div class="navbar bg-base-100 ">
+                <div class="flex-1">
+                 <img src="images/logo.png" alt="">
+                </div>
+                <div class="flex justify-between items-center gap-4 ">
+                  <div class="rounded-full border p-3 cursor-pointer hidden tooltip  tooltip-top lg:block" data-tip="Home">
+                    <img src="images/Home.png" alt="">
+                  </div>
+                  <div class="rounded-full border p-3 cursor-pointer tooltip  tooltip-top hidden lg:block" data-tip="Edit">
+                    <img src="images/pen.png" alt="">
+                  </div> 
+                  <div class="rounded-full border p-3 cursor-pointer tooltip  tooltip-top hidden lg:block" data-tip="Add">
+                    <img src="images/add+.png" alt="">
+                  </div>
+                  <div class="rounded-full border p-3 cursor-pointer tooltip  tooltip-top hidden lg:block" data-tip="Flag">
+                    <img src="images/flag.png" alt="">
+                  </div>
+                  <div>
+                    <button class=" btn rounded-full  bg-[#797DFC] font-mulish font-bold text-white ">Sign In</button>
+                  </div>
+                </div>
+              </div>
+        </section>
+        <!-- banner section -->
+        <section class="my-6 ">
+          <div class="rounded-3xl hero min-h-screen bg-[#12132D] bg-[url(images/bgbanner.png)]">
+              
+
+              <div class="flex flex-col lg:flex-row justify-between items-center lg:gap-20">
+              <!-- hero left -->
+              
+                  <div class="hero-content text-center lg:text-left text-neutral-content">
+                      <div class="max-w-md">
+                        <h1 class="mb-5  font-mulish font-black text-[32px] lg:text-[64px] text-white  lg:w-[633px]">Welcome to the <span class="text-[#797DFC]">ReTro</span> Forum</h1>
+                        <p class="mb-5 lg:text-xl font-mulish text-[#ffffffcc
+                        ]">Step into a time capsule of nostalgia! Welcome to Retro Forum, where vintage vibes and vibrant discussions await.</p>
+    
+                        <label class="input input-bordered flex rounded-full items-center gap-2">
+                            <input id="search-box" type="text" class="grow text-black" placeholder="Search here anything" />
+                            <button onclick="handleSearch()" id="search-btn" class=" btn rounded-full  bg-[#797DFC] font-mulish font-bold text-white">Search</button>
+                          </label>
+                    </div>
+                  </div>
+
+                  <!-- Hero Right -->
+                  <div class="bg-white rounded-[32px] p-9 lg:p-12 mb-6">
+                      <div>
+                          <div class="flex items-start justify-between font-mulish lg:text-2xl gap-6 text-[#12132DCC]  mb-5">
+                              <p class="">Registered Users</p>
+                              <p>01</p>
+                          </div>
+                          <div class="flex items-start justify-between font-mulish lg:text-2xl text-[#12132DCC] mb-5">
+                              <p class="">Forum</p>
+                              <p>05</p>
+                          </div>
+                          <div class="flex items-start justify-between font-mulish lg:text-2xl text-[#12132DCC] mb-5">
+                              <p class="">Topics</p>
+                              <p>01</p>
+                          </div>
+                          <div class="flex items-start justify-between font-mulish lg:text-2xl text-[#12132DCC] ">
+                              <p >Replies</p>
+                              <p>01</p>
+                          </div> 
+                      </div>
+                  </div>
+              </div>
+      </section>
+          <!-- discuss section -->
+      <section class="mb-12">
+<div class="text-center">
+    <h1 class="text-5xl font-black text-[#12132D] mb-4">Let's Discuss</h1>
+    <p class="text-lg mb-12">Yes, you can run unit tests and view the results directly within the app. The <br>integrated testing features allow for a streamlined .</p>
+    <div>
+        <span id="loading-spinner" class="loading loading-spinner text-error hidden"></span>
+    </div>
+    <div class="flex flex-col lg:flex-row justify-between ">
+        
+        <!-- Left Side -->
+        <div id="all-posts-container" class=" lg:w-[790px] gap-6">
+            
+            
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="bg-[#12132d0d] p-6 rounded-3xl lg:w-[374px] lg:h-auto">
+            <div class="flex justify-between">
+                <div>
+                    <h5 class="text-[#12132D] font-mulish font-semibold text-[20px]">Title</h5>
+                </div>
+              
+                <div class="flex items-center gap-2">
+                    <img src="images/right.png" alt="">
+                    <p class="text-[#12132d99]">Mark as read (<span id="counNum">0</span>)</p>
+                </div>
+            </div>
+
+
+            <div id="rightDiv" class="flex flex-col lg:flex-auto">
+               
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+      </section>
+      <section class="container mx-auto my-10 rounded-lg ">
+        <div class="hero min-h-screen" >
+            <div class="hero-overlay bg-[#12132D] rounded-[32px]"></div>
+
+            <div class="flex flex-col lg:flex-row justify-between items-center "> 
+                <!-- Left -->
+                <div class="text-center lg:text-left text-neutral-content ">
+                    <div class="pl-8">
+                        <h1 class="mb-5  font-mulish font-black text-[32px] lg:text-[40px] text-white">Join Our Forum</h1>
+                        <p class="mb-5 lg:text-xl font-mulish text-[#ffffffcc
+                        ] lg:w-[652px]">Join us in celebrating the beauty of the past and creating timeless memories together. Click 'Registred Now' and let the retro journey begin! </p>
+                     
+                        <button class=" btn rounded-full bg-[#797DFC] font-mulish font-bold text-white mb-4 ">Registered Now</button>
+                    </div>
+                  </div>
+
+                  <!-- Right -->
+
+                  <div>
+                    <img src="images/joinforum.png" alt="">
+                  </div>
+            </div>
+            
+          </div>
+    </section>
+      <!-- cards section -->
+      <section class="mb-12">
+        <div class="text-center mb-4 mt-5">
+<h1 class="text-5xl font-black text-[#12132D] mb-4">Latest Posts</h1>
+<p class="mb-4 mt-4">Yes, you can run unit tests and view the results directly within the app. The <br>integrated testing features allow for a streamlined .</p>
+<div>
+    <span id="loading-spinner2" class="loading loading-spinner text-error hidden"></span>
+</div>
+<div id="card-container" class="flex flex-col md:flex-row lg:flex-row gap-8 justify-between">
+   
+  
+      </div>
+      </div>
+</div>
+        </div>
+      </section>
+    </main>
+<footer>
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <img src="images/logo.png" alt="" srcset=""> 
+        <h1 class="text-base text-[#12132DB3] font-normal">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots <br> in a piece of classical Latin literature from 45 BC</h1>
+        <nav>
+          <div class="grid grid-flow-col gap-4">
+            <a><img src="images/fb.png" alt="" srcset=""></a>
+            <a><img src="images/twitter.png" alt="" srcset=""></a>
+            <a><img src="images/github.png" alt="" srcset=""></a>
+            <a><img src="images/instragram.png" alt="" srcset=""></a>
+          </div>
+          <hr class="border-dashed">
+        </nav> 
+        <aside>
+          <p>2024, All Rights Reserved.</p>
+        </aside>
+      </footer>
+</footer>
+    <!-- script js -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
